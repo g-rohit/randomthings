@@ -13,6 +13,9 @@ document
 document
   .getElementById("DOG")
   .addEventListener("click", DOG);
+document
+  .getElementById("tinderMemes")
+  .addEventListener("click", tinderMemes);
 
 function showRandomCat() {
     fetch('https://meme-api.herokuapp.com/gimme/cats')
@@ -48,7 +51,7 @@ function getRandomNaturePic(){
 
 function makeMeFeelMotivated(){
 
-    fetch('https://meme-api.herokuapp.com/gimme/motivation')
+    fetch('https://meme-api.herokuapp.com/gimme/MotivationalPics')
     .then(response => response.json())
     .then(data => {
         document.getElementById(
@@ -60,6 +63,17 @@ function makeMeFeelMotivated(){
 function DOG(){
 
     fetch('https://meme-api.herokuapp.com/gimme/DOG')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById(
+            "showData"
+          ).innerHTML = `<p>${data.title}</p><img src="${data.url}"/>`;
+    });
+}
+
+function tinderMemes(){
+
+    fetch('https://meme-api.herokuapp.com/gimme/tinderMemes')
     .then(response => response.json())
     .then(data => {
         document.getElementById(
